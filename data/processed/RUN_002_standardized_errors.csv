@@ -1,2 +1,0 @@
-﻿error_code,error_message,url,page_route,trigger_scenario,error_count
-ERR_006,付款密码错误，剩余可尝试4次，可尝试次数用完后，该资金用户将被冻结,/salary/disburse/pay,/salary/disburse/pay,薪资代发-代发付款时输入付款密码,4963

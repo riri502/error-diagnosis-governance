@@ -16,6 +16,32 @@ venv/
 .env
 .env.local
 
-# Output artifacts (keep directory, ignore contents that regenerate)
-artifacts/*
-!artifacts/.gitkeep
+# Claude local settings
+.claude/settings.local.json
+
+# Data files (sensitive production data)
+data/inbox/*.csv
+data/processed/*.csv
+data/samples/*.csv
+
+# State files (sensitive governance data)
+state/evidence_registry.csv
+state/governance_ledger.csv
+state/review_registry.csv
+state/runs/*.json
+
+# Artifact outputs (keep directory structure, ignore generated content)
+artifacts/diagnosis_reports/*
+!artifacts/diagnosis_reports/.gitkeep
+artifacts/human_questions/*
+!artifacts/human_questions/.gitkeep
+artifacts/review_cards/*
+!artifacts/review_cards/.gitkeep
+artifacts/copy_packages/*
+!artifacts/copy_packages/.gitkeep
+artifacts/review_reports/*
+!artifacts/review_reports/.gitkeep
+artifacts/solution_packages/*
+!artifacts/solution_packages/.gitkeep
+artifacts/monthly_reports/*
+!artifacts/monthly_reports/.gitkeep
