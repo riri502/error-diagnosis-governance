@@ -45,3 +45,4 @@ artifacts/solution_packages/*
 !artifacts/solution_packages/.gitkeep
 artifacts/monthly_reports/*
 !artifacts/monthly_reports/.gitkeep
+artifacts/run_logs/
