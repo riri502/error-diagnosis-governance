@@ -1,0 +1,17 @@
+# 25_audit_contract
+
+## 1) 目的
+
+确保按变更查的闭环可用，支持追溯“谁在何时对谁做了什么、是否审批、何时生效”。
+
+## 2) 最低审计字段集合
+
+- `who`：操作者，如 `operator_id`、`operator_role`
+- `to_whom`：被操作对象，如 `subject_id`、`target_user_id`
+- `what`：操作类型，如 `grant`、`revoke`、`edit`、`batch`
+- `where`：作用域，如 `app_id`、`role_id`、`org_scope`
+- `when`：发生时间与生效时间
+- `why`：原因或备注
+- `approval`：是否需要审批、实例 id、当前状态
+- `outcome`：结果与 `conflict_reason_code`
+- `snapshot`：`evaluatable_snapshot`

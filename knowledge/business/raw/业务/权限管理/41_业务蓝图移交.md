@@ -1,0 +1,42 @@
+# 41_business_blueprint_handoff
+
+## 核心必填
+
+- `entry_strategy`
+- `exception_catalog`
+- `decision_chain`
+- `final_effective_rule`
+- `source_enum`
+- `source_priority`
+- `conflict_reason_code`
+- `query_path`
+- `feasible_level`
+
+## 条件必填
+
+- `query_surface_map`
+- `gaps`
+- `state_model`
+- `actor_responsibility`
+- `operation_risk_level`
+- `audit_requirement`
+- `model_boundary`
+- `applicability`
+
+## 建议增强
+
+- `source_of_truth`
+- `effect_modifier`
+- `modifier_source_of_truth`
+- `scope_expression`
+- `evaluatable_snapshot`
+
+## 字段来源映射
+
+- `entry_strategy`、`exception_catalog`：来自入口分区与能力地图
+- `decision_chain`、`final_effective_rule`：来自判定链路合同
+- `source_enum`、`source_priority`：来源模型
+- `conflict_reason_code`：原因码体系
+- `query_path`、`feasible_level`：查询与配置路径
+- `state_model`、`actor_responsibility`：治理状态模型
+- `audit_requirement`：审计合同

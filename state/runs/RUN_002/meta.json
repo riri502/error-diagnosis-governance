@@ -1,0 +1,12 @@
+{
+  "run_id": "RUN_002",
+  "input_file": "data/inbox/errors_single.csv",
+  "created_at": "2026-05-19T20:38:22.473897",
+  "status": "WAITING_FOR_HUMAN",
+  "total_items": 1,
+  "completed_items": 0,
+  "waiting_human_items": 1,
+  "governance_ids": [
+    "GOV_20260519_203822_2f4e61"
+  ]
+}

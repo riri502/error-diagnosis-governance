@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python scripts/run_pipeline.py --input data/inbox/errors_single.csv --run-id RUN_002)"
+    ]
+  }
+}

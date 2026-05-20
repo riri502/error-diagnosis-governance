@@ -1,0 +1,69 @@
+# 03_business_objects
+
+## 主体对象
+
+### subject
+- 定义：权限结果的承受者或操作者
+- 典型实例：用户、成员、子管理员
+- 最小属性：
+  - `subject_id`
+  - `subject_type`
+  - `org_scope`
+  - `role_refs[]`
+
+## 资源对象
+
+### resource
+- 定义：被访问、被查看、被配置或被操作的对象
+- 典型实例：应用、菜单、操作点、数据对象
+- 最小属性：
+  - `resource_id`
+  - `resource_type`
+  - `parent_resource_id`
+  - `app_id`
+
+## 动作对象
+
+### action
+- 定义：主体对资源执行的行为
+- 典型实例：查看、编辑、导出、审批
+- 最小属性：
+  - `action_code`
+  - `action_name`
+  - `action_level`
+
+## 范围对象
+
+### scope
+- 定义：权限最终可作用的数据边界
+- 最小属性：
+  - `scope_type`
+  - `scope_expression`
+  - `scope_result`
+
+## 来源对象
+
+### source
+- 定义：参与解释权限结果的授予来源
+- 最小属性：
+  - `source_enum`
+  - `source_ref`
+  - `source_priority`
+
+## 治理因子对象
+
+### modifier
+- 定义：影响生效、责任边界与可操作范围的修饰因子
+- 最小属性：
+  - `modifier_type`
+  - `modifier_state`
+  - `modifier_ref`
+
+## 状态对象
+
+### state
+- 定义：权限变更或治理流程当前所处状态
+- 最小属性：
+  - `state_code`
+  - `effective_flag`
+  - `actor_responsibility`

@@ -1,0 +1,16 @@
+{
+  "run_id": "RUN_CLEANUP",
+  "input_file": "data/inbox/errors.csv",
+  "created_at": "2026-05-19T17:12:21.696346",
+  "status": "WAITING_FOR_HUMAN",
+  "total_items": 5,
+  "completed_items": 0,
+  "waiting_human_items": 5,
+  "governance_ids": [
+    "GOV_20260519_171221_d403ff",
+    "GOV_20260519_171221_3d1c9c",
+    "GOV_20260519_171221_47b028",
+    "GOV_20260519_171221_438790",
+    "GOV_20260519_171221_baff7a"
+  ]
+}

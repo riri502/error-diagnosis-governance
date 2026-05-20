@@ -1,0 +1,56 @@
+# 20_decision_chain_contract
+
+## 1) 目的
+
+把“可见≠可操作、不可见覆盖、数据范围范围类型与条件组计算、治理或审批影响生效”等业务事实，固化成可复用的判定链路，确保蓝图能回答：
+- 为什么有
+- 为什么没有
+- 来自哪里
+- 谁改的
+- 何时生效
+
+## 2) 输入对象
+
+- **subject**：主体，如用户、成员、子管理员
+- **resource**：资源，如应用、菜单、操作点、数据对象
+- **action**：动作，如查看、编辑、导出、审批
+- **context**：上下文，如组织范围、时间、审批状态
+
+## 3) 判定链路
+
+> 原则：先判断是否可达或可见，再判断是否可操作，再判断数据范围，最后叠加治理与生效。
+
+### L0 可见性门槛
+- 规则：不可见具有覆盖性；不可见时即视为不可达
+- 说明：最终可达性可短路，但排错或审计场景可继续输出被短路层的配置摘要
+- 证据要求：命中的不可见规则标识，如 `app_visibility_rule_id`
+
+### L1 功能权限
+- 规则：功能权限以末级菜单或操作点为授权粒度
+- 证据要求：命中的授予来源清单
+
+### L2 数据权限
+- 前置：先有功能权限才配置数据权限
+- 取值：全部 / 部分 / 无
+- 计算：
+  - 全部：直接放行全部数据范围，不进入条件组编辑
+  - 部分：条件组内取交集，条件组之间取并集
+  - 无：直接得到空范围
+- 约束：至少保留 1 个条件组，且每个条件组内至少保留 1 个条件
+- 证据要求：`scope_expression` 与 `evaluatable_snapshot`
+
+### L3 治理与生效
+- 当存在审批、互审、子管理员范围隔离等治理模式时，最终结果需要输出是否已生效与卡点
+- 证据要求：`state_model` 当前态与 `actor_responsibility`
+
+## 4) final_effective_rule
+
+- `final_effective_rule = VisibilityGate AND FunctionGrant AND DataScope AND GovernanceState`
+- `DataScope` 是多值结果，不应被误解为纯布尔位
+- `GovernanceState` 是状态节点，不应被误解为纯布尔位
+- 若 `VisibilityGate = false`：输出不可达与原因码
+- 若 `FunctionGrant = false`：输出可见但不可操作
+- 若 `DataScope = all`：输出可操作且全量范围
+- 若 `DataScope = partial`：输出可操作且部分范围，并给出条件组计算表达
+- 若 `DataScope = empty/none`：输出可操作但无数据范围
+- 若 `GovernanceState != effective`：输出待审、未生效、已拒绝、已撤销等状态

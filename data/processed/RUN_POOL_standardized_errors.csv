@@ -1,0 +1,6 @@
+﻿error_code,error_message,url,page_route,trigger_scenario,error_count
+ERR_001,您没有【查询员工的档案信息】的操作权限请联系超级管理员分配权限,/hr/employee/archive,/hr/employee/archive,HR查看员工档案时,5000
+ERR_002,提交数据有误请检查：成员id不能为空,/payroll/salary/submit,/payroll/salary/submit,薪资管理员提交工资单时,968
+ERR_003,Network Error,/api/invoice/list,/finance/invoice,财务查看发票列表时,8061
+ERR_004,账套不存在请检查,/finance/account/123,/finance/account,财务打开账套详情时,1097
+ERR_005,当前期间已结账公式不允许修改,/finance/voucher/edit,/finance/voucher,财务修改凭证时,131

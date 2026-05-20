@@ -1,0 +1,31 @@
+# 22_conflict_reason_codes
+
+## 1) 目的
+
+把“被覆盖、不生效、不可用”变成可枚举、可定位的原因码，并与判定链路层级对应。
+
+## 2) 原因域
+
+- `VISIBILITY`：不可见、不可达
+- `GRANT`：未授予、不可操作
+- `SCOPE`：数据范围为空或条件不命中
+- `GOVERNANCE`：待审批、未生效、被拒绝、撤销
+- `BOUNDARY`：子管理员管辖范围外
+
+## 3) 最小原因码集合
+
+- `VISIBILITY.APP_NOT_VISIBLE`：应用维度不可见覆盖个人维度权限
+- `GRANT.NO_FUNCTION_GRANT`：可见但未配功能权限
+- `SCOPE.DATA_SCOPE_EMPTY`：数据权限为无或交集后为空
+- `SCOPE.CONDITION_GROUP_REQUIRED`：部分数据权限下未保留任何条件组
+- `SCOPE.CONDITION_REQUIRED`：条件组存在但组内无有效条件
+- `GOVERNANCE.PENDING_APPROVAL`：申请或变更在途，尚未生效
+- `BOUNDARY.OUT_OF_ADMIN_SCOPE`：子管理员范围隔离导致不可改或不可授予
+
+## 4) 定位字段
+
+- `reason_code`
+- `failed_layer`
+- `blocking_source`
+- `blocking_modifier`
+- `rule_ref`

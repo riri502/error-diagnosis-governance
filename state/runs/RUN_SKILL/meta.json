@@ -1,0 +1,16 @@
+{
+  "run_id": "RUN_SKILL",
+  "input_file": "data/inbox/errors.csv",
+  "created_at": "2026-05-19T17:53:20.833772",
+  "status": "WAITING_FOR_HUMAN",
+  "total_items": 5,
+  "completed_items": 0,
+  "waiting_human_items": 5,
+  "governance_ids": [
+    "GOV_20260519_175320_087b59",
+    "GOV_20260519_175320_086abf",
+    "GOV_20260519_175320_8ce944",
+    "GOV_20260519_175320_497264",
+    "GOV_20260519_175320_269895"
+  ]
+}

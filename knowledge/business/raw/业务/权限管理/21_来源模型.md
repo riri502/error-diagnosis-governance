@@ -1,0 +1,37 @@
+# 21_source_model
+
+## 1) 目的
+
+统一“权限从哪里来”的解释口径，避免多入口叠加后不可解释。
+
+## 2) source_enum
+
+> 只覆盖直接参与权限结果解释的来源，不扩张为所有相关系统来源。
+
+- `ACL_DIRECT`：用户授权，个人直授
+- `RBAC_ROLE`：角色管理，角色授予
+- `APP_VISIBILITY`：应用管理的可见/不可见
+- `COLLAB_VISIBILITY`：成员协作权限，仅在协作可见性场景作为来源
+
+## 2.5) effect_modifier
+
+- `GOVERNANCE_MODE`：权限管理模式、审批互审、子管理员隔离
+
+## 3) source_priority
+
+- `APP_VISIBILITY` 的不可见对最终可达性具有覆盖性
+- `APP_VISIBILITY` 决定用户在工作台是否看得到应用，`ACL_DIRECT` / `RBAC_ROLE` 决定看得到后是否还能继续使用、操作其中功能，两者是同时存在的解释层
+- `ACL_DIRECT` 与 `RBAC_ROLE` 在功能权限层共同参与解释
+- `COLLAB_VISIBILITY` 默认不并入功能权限来源叠加
+- `GOVERNANCE_MODE` 作为修饰因子，不改变授予事实，只影响是否生效、谁能改、何时生效
+
+## 4) source_of_truth
+
+- `ACL_DIRECT`：用户授权，按人直授的功能权限 / 数据权限配置
+- `RBAC_ROLE`：角色管理，角色自身的功能权限 / 数据权限配置；如需修改角色来源授权，应回到角色管理页完成
+- `APP_VISIBILITY`：应用管理 / 应用设置页，控制应用及子功能在前台的可见范围
+- `COLLAB_VISIBILITY`：成员协作权限，控制成员之间与外部协作对象之间的可见性边界
+
+## 4.5) modifier_source_of_truth
+
+- `GOVERNANCE_MODE`：权限管理模式页、审批管理 / 通用审批、相关审计日志
