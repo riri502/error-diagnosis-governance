@@ -28,7 +28,7 @@ data/samples/*.csv
 state/evidence_registry.csv
 state/governance_ledger.csv
 state/review_registry.csv
-state/runs/*.json
+state/runs/
 
 # Artifact outputs (keep directory structure, ignore generated content)
 artifacts/diagnosis_reports/*
